@@ -8,9 +8,8 @@ function App() {
   return (
     <div className="App">
     <Encabezado></Encabezado>
-    <Pie></Pie>
     <Principal></Principal>
-
+    <Pie></Pie>
     </div>
   );
 }
