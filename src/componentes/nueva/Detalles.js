@@ -1,48 +1,56 @@
+import estilos from "./Detalles.module.css"
 function Detalles() {
     const frecuencias =["dia", "semana", "mes", "año"];
     const iconos = ["💻","🏃‍♂️","📚","✈","💵","🚲","🧘‍♀️"];
 
     return (
-        <div>
-            <form>
-                    <label>
+        <div className="tarjeta">
+            <form className="p-4">
+                    <label className="label">
                         Describe tu meta
-                        <input placeholder="ej. 52 caminatas"/>
+                        <input
+                        className="input"
+                        placeholder="ej. 52 caminatas"/>
                     </label>
-                    <label>
+                    <label className="label">
                         ¿Con qué frecuencia deseas cumplir tu meta? <span>(ej. 1 vez a la semana)</span>
-                        <div>
-                            <input type="number" />
-                            <select>
-                                    {frecuencias.map(opcion => <option value="{opcion}">{opcion}</option>)}
-                                    <option value="a la semana"></option>
-                                    <option value="al mes"></option>
-                                    <option value="al año"></option>
+                        <div className="flex mb-6">
+                            <input
+                            className="input"
+                            type="number" />
+                            <select className="input">
+                                    {frecuencias.map(opcion => <option value={opcion}>{opcion}</option>)}
                             </select>
                         </div>
                     </label>
-                    <label>
+                    <label className="label">
                         ¿Cuántas veces deseas completar esta meta?
-                        <input type="number" />
+                        <input
+                        className="input"
+                        type="number" />
                     </label>
-                    <label>
+                    <label className="label">
                         Selecciona la fecha límite para cumplir tu meta
-                        <input type="date" />
+                        <input
+                        className="input"
+                        type="date" />
                     </label>
-                    <label>
+                    <label className="label">
                         ¿Cuántas veces haz completado ya esta meta?
-                        <input type="number" />
+                        <input
+                        className="input"
+                        type="number" />
                     </label>
-                    <label>
+                    <label className="label">
                         Escoge un ícono para la meta
-                        <select>
-                            {iconos.map(opcion => <opcion value={opcion}>{opcion}</opcion>)}
+                        <select className="input">
+                            {iconos.map(opcion => <option value={opcion}>{opcion}</option>)}
                         </select>
                     </label>
             </form>
-            <div>
-                <button>Crear</button>
-                <button>Cancelar</button>
+            <div className={estilos.botones}>
+                <button className="boton boton--negro">Crear</button>
+                <button className="boton boton--gris">Cancelar</button>
             </div>
         </div>
     );
