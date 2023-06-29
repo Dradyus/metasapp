@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import estilos from "./Detalles.module.css"
+import { Contexto } from "../../servicios/Memoria";
+import { useNavigate } from "react-router-dom";
 function Detalles() {
 
     const [form, setForm] = useState({
@@ -12,6 +14,8 @@ function Detalles() {
         completado: 0
     });
 
+    const [estado, enviar] = useContext(Contexto);
+
     const {detalles, eventos, periodo, icono, meta, plazo, completado} = form;
     const onChange = (event, prop) => {
         setForm(estado => ({...estado, [prop]: event.target.value}));
@@ -22,8 +26,11 @@ function Detalles() {
     }, [form]);
 
     const crear = async () => {
-        console.log(form);
+        //console.log(form);
+        enviar({tipo: 'crear', meta: form});
+        navegar('/lista');
     }
+    const navegar = useNavigate();
 
     const frecuencias =["dia", "semana", "mes", "año"];
     const iconos = ["💻","🏃‍♂️","📚","✈","💵","🚲","🧘‍♀️"];
