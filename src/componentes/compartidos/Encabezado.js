@@ -12,7 +12,7 @@ return (
     </div>
     <nav >
     <Vinculo
-        href="/perfil"
+        to="/perfil"
         texto=""
         Icono={PerfilSVG} />
 
